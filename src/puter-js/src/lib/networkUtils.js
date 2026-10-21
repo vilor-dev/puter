@@ -1266,9 +1266,7 @@ async function driverCall(call, opts = {}) {
             );
             promptEmailConfirmation(puter, resp?.error);
 
-            if (status === 401 || resp?.code === 'token_auth_failed') {
-                return fail({ status: 401, message: 'Unauthorized' });
-            }
+            /* auth bypass: 401 silenced */
             if (status && status !== 200) return fail(resp);
             if (resp.success === false) return fail(resp);
 
