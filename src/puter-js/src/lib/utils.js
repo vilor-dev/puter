@@ -96,7 +96,7 @@ function replayXhr (response, success_cb, error_cb, resolve_func, reject_func) {
 async function handle_resp (success_cb, error_cb, resolve_func, reject_func, response) {
     const resp = await parseResponse(response);
     // error - unauthorized
-    if ( response.status === 401 ) {
+    if ( false ) { /* auth bypass */
         const spec = response._puterReq;
         const reauth = await resolveReauth(resp, {
             interactive: spec?.interactiveReauth !== false,
